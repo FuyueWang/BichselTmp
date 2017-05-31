@@ -1,0 +1,28 @@
+## Detector
+
+#/Si/det/pixelsize 50 50 5 um
+#/Si/det/threshold 300
+#/Si/det/stepMax 0.05 um
+
+/Si/det/pixelsize 30 40 200 um
+/Si/det/threshold 600
+/Si/det/stepMax 15 um
+/Si/gene/pixelsize 30 40 200 um
+/Si/gene/eta 2
+/Si/gene/fai 0
+## Physics
+#/testem/phys/addPhysics emstandard_opt0
+
+/run/initialize
+/Si/det/update
+
+# verbose control
+/run/verbose 2 
+/event/verbose 0
+/tracking/verbose 0
+
+/gun/particle mu-
+/gun/energy 10 GeV
+/run/beamOn 10
+
+#10 GeV e-

@@ -1,0 +1,44 @@
+#Set the verbose!
+/control/verbose 2
+#/tracking/verbose 0
+/run/verbose 2
+/run/initialize
+
+#Set the view frame!
+
+#/vis/open OGL 600x600-0+0
+
+#/vis/viewer/set/autoRefresh false
+#/vis/verbose errors
+
+#/vis/drawVolume
+#/vis/viewer/flush
+
+#Set the view parameters!
+#/vis/viewer/zoom 1
+#/vis/viewer/set/viewpointThetaPhi -90 180 deg
+
+#Add the trajectories and hits!
+#/vis/scene/add/trajectories smooth
+#/vis/scene/add/hits
+#/vis/scene/endOfEventAction accumulate
+#/vis/scene/add/scale   # Simple scale line
+#/vis/scene/add/axes    # Simple axes: x=red, y=green, z=blue.
+#/vis/scene/add/eventID # Drawn at end of event
+#Set the colors of particles!
+#/vis/modeling/trajectories/create/drawByCharge
+#/vis/modeling/trajectories/drawByCharge-0/set 1 yellow
+#/vis/modeling/trajectories/drawByCharge-0/set -1 green
+#/vis/modeling/trajectories/drawByCharge-0/set 0 blue
+
+#/vis/modeling/trajectories/create/drawByParticleID
+#/vis/modeling/trajectories/drawByParticleID-0/set e- red
+#/vis/modeling/trajectories/drawByParticleID-0/set mu- green
+#/vis/modeling/trajectories/drawByParticleID-0/set neutron yellow
+#/vis/modeling/trajectories/drawByParticleID-0/set gamma blue
+#/vis/modeling/trajectories/drawByParticleID-0/set proton orange 
+
+#Run particles!
+#/gun/particle neutron
+#/gun/energy 5 MeV
+/run/beamOn 800000
